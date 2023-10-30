@@ -7,7 +7,7 @@ DB_USER = config('DB_USER', default='usuario')
 DB_PASSWORD = config('DB_PASSWORD', default='contraseña')
 DB_NAME = config('DB_NAME', default='nombre_basededatos')
 
-settings = {
+SETTINGS = {
     "host": DB_HOST,
     "port": DB_PORT,
     "user": DB_USER,

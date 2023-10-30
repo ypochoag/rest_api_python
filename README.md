@@ -21,21 +21,19 @@ Asegúrate de configurar adecuadamente la base de datos en un archivo `.env`. Se
 La estructura de carpetas del proyecto se organiza de la siguiente manera:
 
 prueba_habi/│
+├──.env.example
 ├──src
-  │
   ├── api_habi.py
   ├── db/
-  │ ├── init.py
-  │ └── db_connector.py
+  │ ├── db_connector.py
+  │ └── db_queries.py
   │
-  ├── routes/
-  │ ├── init.py
-  │ └── data_routes.py
+  ├── test/
+  │ ├── test_api.py
+  │ └── 
   │
   └── config/
-    ├── init.py
-    ├── database_config.py
-    └── .env.example
+    └── database_config.py
 
 
 - **`api_habi.py`**: El archivo principal de la API que maneja las solicitudes HTTP.
