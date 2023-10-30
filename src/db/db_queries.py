@@ -11,9 +11,12 @@ def query_generation(filters: any):
 
     if filters:
         if "status" in filters:
-            status = "s.name = '" + str(filters["status"]) + "' "
+            if (filters["status"] == 'vendido'
+                or filters["status"] == 'en_venta'
+                    or filters["status"] == 'pre_venta'):
+                status = "s.name = '" + str(filters["status"]) + "' "
         if "year" in filters:
-            year = "AND p.year > " + str(filters["year"]) + " "
+            year = "AND p.year >= " + str(filters["year"]) + " "
         if "city" in filters:
             city = "AND p.city = '" + str(filters["city"]) + "' "
 

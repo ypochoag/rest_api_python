@@ -8,6 +8,9 @@ Este proyecto tiene como objetivo proporcionar a los usuarios una herramienta ef
 - MySQL: Sistema de gestión de bases de datos utilizado para almacenar y recuperar datos.
 - `mysql-connector-python`: Biblioteca Python para interactuar con la base de datos MySQL.
 - `python-decouple`: Biblioteca para gestionar las configuraciones y variables de entorno de la aplicación.
+- `python-dotenv`: Biblioteca que carga variables de entorno desde un archivo .env en aplicaciones Python.
+- `requests`: Biblioteca de Python que simplifica las solicitudes HTTP, facilitando la interacción con servicios web.
+
 
 ## Configuración de Base de Datos
 
@@ -22,33 +25,34 @@ La estructura de carpetas del proyecto se organiza de la siguiente manera:
 
 prueba_habi/│
 ├──.env.example
-├──src
-  ├── api_habi.py
-  ├── db/
-  │ ├── db_connector.py
-  │ └── db_queries.py
-  │
-  ├── test/
-  │ ├── test_api.py
-  │ └── 
-  │
-  └── config/
-    └── database_config.py
+└── src
+    ├── api_habi.py
+    ├── test_api.py
+    ├── db/
+    │   ├── db_config.py
+    │   ├── db_connector.py
+    │   └── db_queries.py
+    └── utils/
+        └── data_format.py
 
 
 - **`api_habi.py`**: El archivo principal de la API que maneja las solicitudes HTTP.
-- **`db/`**: Contiene los archivos relacionados con la base de datos, como la lógica de conexión.
-- **`routes/`**: Define las rutas de la API para datos y diferentes recursos que se requieran posteriormente.
-- **`config/`**: Almacena configuraciones y variables de entorno.
+- **`test_api.py`**: El archivo donde se implementan pruebas unitarias de la API.
+- **`db/`**: Contiene los archivos relacionados con la base de datos, como la configuración, lógica y cierre de conexión.
+- **`utils/`**: Se alojan los modlos y archivos de utilidades con funciones comunes y reutilizables del proyecto.
+
 
 ### Ejecución
 
 Para ejecutar el proyecto:
 
 1. Asegúrate de tener Python instalado en tu entorno.
-2. Instala las dependencias utilizando `pip install mysql-connector-python python-decouple`.
+2. Instala las dependencias utilizando `pip install mysql-connector-python python-decouple python-dotenv requests`.
 3. Crea un archivo `.env` con la configuración de la base de datos.
-4. Ejecuta el proyecto con `python api_habi.py`.
+4. Posicionarse en la carpeta raiz del proyecto.
+5. Ejecuta el proyecto con `python .\src\api_habi.py`.
+
+`Nota`: Para ejecutar las pruebas unitarias usar el comando `python .\src\test_api.py`.   
 
 ### Rutas de API
 

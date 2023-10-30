@@ -70,10 +70,21 @@ class TestApiHabi(unittest.TestCase):
         """Prueba de la funcion post a otra ruta"""
         response = requests.post(
             'http://localhost:8080/api/data/other', timeout=2000)
+        self.assertEqual(response.status_code, 404)
+        good_response = '{"Error": "Ruta no valida, use: /api/data"}'
+        self.assertEqual(response.text, good_response)
+
+    def test_post_good_route_bad_body(self):
+        """Prueba de la funcion post filtro no valido"""
+        datos = {
+            "Estatus": "pre_venta",
+            "anio": 2019,
+            "ciudad": "bogota"
+        }
+        response = requests.post(
+            'http://localhost:8080/api/data', json=datos, timeout=2000)
         self.assertEqual(response.status_code, 400)
         good_response = '{"Error": "Filtros no validos"}'
         self.assertEqual(response.text, good_response)
-
-
 if __name__ == '__main__':
     unittest.main()
