@@ -22,10 +22,10 @@ Asegúrate de configurar adecuadamente la base de datos en un archivo `.env`. Se
 ### Estructura de Carpetas
 
 La estructura de carpetas del proyecto se organiza de la siguiente manera:
-
-prueba_habi/│
-├──.env.example
-└── src
+```
+ prueba_habi/
+ ├──.env.example
+ └── src
     ├── api_habi.py
     ├── test_api.py
     ├── db/
@@ -34,7 +34,7 @@ prueba_habi/│
     │   └── db_queries.py
     └── utils/
         └── data_format.py
-
+```
 
 - **`api_habi.py`**: El archivo principal de la API que maneja las solicitudes HTTP.
 - **`test_api.py`**: El archivo donde se implementan pruebas unitarias de la API.
