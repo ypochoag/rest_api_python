@@ -39,7 +39,7 @@ La estructura de carpetas del proyecto se organiza de la siguiente manera:
 - **`api_habi.py`**: El archivo principal de la API que maneja las solicitudes HTTP.
 - **`test_api.py`**: El archivo donde se implementan pruebas unitarias de la API.
 - **`db/`**: Contiene los archivos relacionados con la base de datos, como la configuración, lógica y cierre de conexión.
-- **`utils/`**: Se alojan los modlos y archivos de utilidades con funciones comunes y reutilizables del proyecto.
+- **`utils/`**: Se alojan los módulos y archivos de utilidades con funciones comunes y reutilizables del proyecto.
 
 
 ### Ejecución
@@ -61,7 +61,7 @@ Para ejecutar el proyecto:
 ### Método GET: 
 Se puede acceder a la lista de propiedades en estado "pre_venta", "en_venta" y "vendido" utilizando el endpoint descrito anteriormente. 
 
-Nota: En caso que se este ejecutando en una maquina local el punto de acceso sera el siguiente:
+Nota: En caso de que se este ejecutando en una maquina local el punto de acceso será el siguiente:
 
 `GET` : <http://localhost:8000/api/data>
 
@@ -93,7 +93,7 @@ Nota: En caso que se este ejecutando en una maquina local el punto de acceso ser
 ### Método POST:
 Con el fin de satisfacer los requisitos de filtrado que se originen desde el frontend, se ha implementado el método POST en el mismo endpoint anterior. 
 
-Parametros disponibles para filtrado:
+Parámetros disponibles para filtrado:
 
 |     Name      | Tipo de dato  | Descripción  |
 | ------------- | ------------- |------------- |
@@ -146,19 +146,19 @@ A continuación, se presenta el Diagrama de Entidad-Relación, que se desarroll�
 1. Entidades :
 	 Creación de nuevas entidades junto con los atributos correspondientes:
 	 - La entidad "user" incluye los atributos de los usuarios registrados.
-	 - Dado que se requiere registrar la interaccion entre las entidades usuarios y propiedades mediante likes, se propone la creación de la entidad "like_history", en la cual se registrarán los momentos en que un usuario da "Me gusta" a una propiedad.
+	 - Dado que se requiere registrar la interacción entre las entidades usuarios y propiedades mediante likes, se propone la creación de la entidad "like_history", en la cual se registrarán los momentos en que un usuario da "Me gusta" a una propiedad.
 	 - Como mejora, se sugiere crear la entidad "city," que almacenará todas las ciudades con una identificación única (ID). Esto permitirá a los usuarios seleccionar una ciudad de una lista de opciones en lugar de tener que escribir el nombre de la ciudad. Además, facilitará mantener referencias a las ciudades en los registros de usuarios.
 
 2. Relaciones
 Las relaciones serían las siguientes:
 - Un usuario puede dar "Me gusta" a varios productos, por lo que tendría una relación uno a muchos entre "user" y "like_history".
 - Un producto puede recibir "Me gusta" de varios usuarios, por lo que también tendría una relación uno a muchos entre "property" y "like_history".
-- Un usuario se puede registrar en una ciudad, por lo que tendria una relación de uno a muchos entre "user" y "city".
-- Una propiedad puede registrarse en  una ciudad, por lo que tendría una relacion de uno a muchos entre "property" y "city".
+- Un usuario se puede registrar en una ciudad, por lo que tendría una relación de uno a muchos entre "user" y "city".
+- Una propiedad puede registrarse en  una ciudad, por lo que tendría una relación de uno a muchos entre "property" y "city".
 
 #### Diagrama de entidad - relación
 ![](https://github.com/ypochoag/rest_api_python/blob/main/me_gusta/dig_er_habi_me_gusta.png?raw=true)
 
-### Codigo SQL
-Para la implementacion del planteamiento anterior se propone un script en SQL con la creacion de las nuevas entidades y su respectivo enlace a la base de datos. 
+### Código SQL
+Para la implementación del planteamiento anterior se propone un script en SQL con la creación de las nuevas entidades y su respectivo enlace a la base de datos. 
 [Ver codigo](https://github.com/ypochoag/rest_api_python/blob/main/me_gusta/sql_implementacion_me_gusta.sql)
